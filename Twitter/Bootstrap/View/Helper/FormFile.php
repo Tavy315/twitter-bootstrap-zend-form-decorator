@@ -23,11 +23,11 @@ class Twitter_Bootstrap_View_Helper_FormFile extends Zend_View_Helper_FormFile
      *
      * @access public
      *
-     * @param string|array $name    If a string, the element name.  If an
-     *                              array, all other parameters are ignored, and the array elements
-     *                              are extracted in place of added parameters.
+     * @param string|array $name If a string, the element name.  If an
+     *                           array, all other parameters are ignored, and the array elements
+     *                           are extracted in place of added parameters.
      *
-     * @param array        $attribs Attributes for the element tag.
+     * @param array $attribs Attributes for the element tag.
      *
      * @return string The element XHTML.
      */

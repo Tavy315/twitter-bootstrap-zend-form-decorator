@@ -18,22 +18,22 @@
  */
 class Twitter_Bootstrap_Form_Element_Reset extends Zend_Form_Element_Reset
 {
-    const BUTTON_PRIMARY = 'primary';
-    const BUTTON_INFO = 'info';
-    const BUTTON_SUCCESS = 'success';
-    const BUTTON_WARNING = 'warning';
     const BUTTON_DANGER = 'danger';
+    const BUTTON_INFO = 'info';
     const BUTTON_INVERSE = 'inverse';
     const BUTTON_LINK = 'link';
+    const BUTTON_PRIMARY = 'primary';
+    const BUTTON_SUCCESS = 'success';
+    const BUTTON_WARNING = 'warning';
 
     protected $_buttons = [
         self::BUTTON_DANGER,
         self::BUTTON_INFO,
+        self::BUTTON_INVERSE,
+        self::BUTTON_LINK,
         self::BUTTON_PRIMARY,
         self::BUTTON_SUCCESS,
         self::BUTTON_WARNING,
-        self::BUTTON_INVERSE,
-        self::BUTTON_LINK
     ];
 
     /**
@@ -44,7 +44,6 @@ class Twitter_Bootstrap_Form_Element_Reset extends Zend_Form_Element_Reset
      */
     public function __construct($spec, $options = null)
     {
-
         if (!isset($options['class'])) {
             $options['class'] = '';
         }

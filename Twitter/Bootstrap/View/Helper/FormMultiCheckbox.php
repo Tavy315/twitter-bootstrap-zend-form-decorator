@@ -89,7 +89,7 @@ class Twitter_Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_F
         $pattern = @preg_match('/\pL/u', 'a')
             ? '/[^\p{L}\p{N}\-\_]/u'    // Unicode
             : '/[^a-zA-Z0-9\-\_]/';     // No Unicode
-        $filter = new Zend_Filter_PregReplace($pattern, "");
+        $filter = new Zend_Filter_PregReplace($pattern, '');
 
         // add radio buttons to the list.
         foreach ($options as $opt_value => $opt_label) {
@@ -139,5 +139,4 @@ class Twitter_Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_F
 
         return $xhtml;
     }
-
 }

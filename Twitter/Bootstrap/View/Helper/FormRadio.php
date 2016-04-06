@@ -37,14 +37,14 @@ class Twitter_Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormEleme
      *
      * @access public
      *
-     * @param string|array $name    If a string, the element name.  If an
-     *                              array, all other parameters are ignored, and the array elements
-     *                              are extracted in place of added parameters.
+     * @param string|array $name If a string, the element name.  If an
+     *                           array, all other parameters are ignored, and the array elements
+     *                           are extracted in place of added parameters.
      *
-     * @param mixed        $value   The radio value to mark as 'checked'.
+     * @param mixed $value The radio value to mark as 'checked'.
      *
-     * @param array        $options An array of key-value pairs where the array
-     *                              key is the radio value, and the array value is the radio text.
+     * @param array $options An array of key-value pairs where the array
+     *                       key is the radio value, and the array value is the radio text.
      *
      * @param array|string $attribs Attributes added to each radio.
      *
@@ -121,7 +121,7 @@ class Twitter_Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormEleme
         $pattern = @preg_match('/\pL/u', 'a')
             ? '/[^\p{L}\p{N}\-\_]/u'    // Unicode
             : '/[^a-zA-Z0-9\-\_]/';     // No Unicode
-        $filter = new Zend_Filter_PregReplace($pattern, "");
+        $filter = new Zend_Filter_PregReplace($pattern, '');
 
         // add radio buttons to the list.
         foreach ($options as $opt_value => $opt_label) {

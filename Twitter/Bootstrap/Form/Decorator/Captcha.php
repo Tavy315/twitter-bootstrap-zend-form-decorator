@@ -21,7 +21,7 @@ class Twitter_Bootstrap_Form_Decorator_Captcha extends Zend_Form_Decorator_Captc
     /**
      * Render captcha
      *
-     * @param  string $content
+     * @param string $content
      *
      * @return string
      */

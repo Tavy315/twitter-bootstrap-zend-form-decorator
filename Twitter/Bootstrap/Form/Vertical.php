@@ -35,7 +35,7 @@ class Twitter_Bootstrap_Form_Vertical extends Twitter_Bootstrap_Form
             [ 'ElementErrors' ],
             [ 'Description', [ 'tag' => 'span', 'class' => 'help-block' ] ],
             [ 'Label' ],
-            [ 'Wrapper' ]
+            [ 'Wrapper' ],
         ]);
     }
 }

@@ -33,7 +33,7 @@ class Twitter_Bootstrap_Form_Horizontal extends Twitter_Bootstrap_Form
             [ 'Description', [ 'tag' => 'span', 'class' => 'help-block' ] ],
             [ 'HtmlTag', [ 'tag' => 'div', 'class' => 'col-' . $this->_getColType() . '-' . $this->_getFieldColSize() ] ],
             [ 'Label', [ 'class' => 'col-' . $this->_getColType() . '-' . $this->_getLabelColSize() . ' control-label' ] ],
-            [ 'Wrapper' ]
+            [ 'Wrapper' ],
         ]);
 
         foreach ($this->getElements() as $element) {
@@ -44,31 +44,29 @@ class Twitter_Bootstrap_Form_Horizontal extends Twitter_Bootstrap_Form
                 $class = $htmlTagDecorator->getOption('class');
                 $htmlTagDecorator->setOption('class', 'checkbox ' . $class);
                 $element->addDecorator($htmlTagDecorator);
-
-            } elseif ($element instanceof Zend_Form_Element_Submit or $element instanceof Zend_Form_Element_Button /*or $element instanceof Zend_Form_Element_Image*/) {
+            } elseif ($element instanceof Zend_Form_Element_Submit
+                or $element instanceof Zend_Form_Element_Button
+                /*or $element instanceof Zend_Form_Element_Image*/
+            ) {
                 $decorators = $element->getDecorators();
                 /** @var Zend_Form_Decorator_HtmlTag $htmlTagDecorator */
                 $htmlTagDecorator = $decorators['Zend_Form_Decorator_HtmlTag'];
                 $class = $htmlTagDecorator->getOption('class');
                 $htmlTagDecorator->setOption('class', 'col-' . $this->_getColType() . '-offset-' . $this->_getLabelColSize() . ' ' . $class);
                 $element->addDecorator($htmlTagDecorator);
-
                 $element->removeDecorator('Zend_Form_Decorator_Label');
-
             } elseif ($element instanceof Zend_Form_Element_File) {
                 $decorators = $element->getDecorators();
                 array_unshift($decorators, 'File'); // adds File
                 unset($decorators['Zend_Form_Decorator_ViewHelper']); // removes Zend_Form_Decorator_ViewHelper
                 unset($decorators['Twitter_Bootstrap_Form_Decorator_ViewHelper']); // removes Twitter_Bootstrap_Form_Decorator_ViewHelper
                 $element->setDecorators($decorators);
-
             } elseif ($element instanceof Zend_Form_Element_Image) {
                 $decorators = $element->getDecorators();
                 array_unshift($decorators, 'Image'); // adds File
                 unset($decorators['Zend_Form_Decorator_ViewHelper']); // removes Zend_Form_Decorator_ViewHelper
                 unset($decorators['Twitter_Bootstrap_Form_Decorator_ViewHelper']); // removes Twitter_Bootstrap_Form_Decorator_ViewHelper
                 $element->setDecorators($decorators);
-
             }
         }
 

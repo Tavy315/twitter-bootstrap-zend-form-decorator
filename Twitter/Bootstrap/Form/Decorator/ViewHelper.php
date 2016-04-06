@@ -74,7 +74,7 @@ class Twitter_Bootstrap_Form_Decorator_ViewHelper extends Zend_Form_Decorator_Vi
 
             case self::PREPEND:
                 return $elementContent . $separator . $content;
-            
+
             default:
                 return $elementContent;
         }

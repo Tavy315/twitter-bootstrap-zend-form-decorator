@@ -25,13 +25,12 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
     const DISPOSITION_INLINE = 'inline';
     const DISPOSITION_SEARCH = 'search';
 
-    protected $_prefixesInitialized = false;
-
-    protected $_labelColSize = 2;
-    protected $_fieldColSize = 3;
-
     public $_allowedColType = [ 'xs', 'sm', 'md', 'lg' ];
+
     protected $_colType = 'lg';
+    protected $_fieldColSize = 3;
+    protected $_labelColSize = 2;
+    protected $_prefixesInitialized = false;
 
     /**
      * Override the base form constructor.
@@ -44,7 +43,7 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
 
         $this->setDecorators([
             'FormElements',
-            'Form'
+            'Form',
         ]);
 
         parent::__construct($options);
@@ -64,7 +63,7 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
             ) {
                 $this->_addClassNames([
                     'form-control',
-                    'col-' . $this->_getColType() . '-' . $this->_getFieldColSize()
+                    'col-' . $this->_getColType() . '-' . $this->_getFieldColSize(),
                 ], $element);
             }
         }
@@ -113,7 +112,7 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
         if (in_array($disposition, [
             self::DISPOSITION_HORIZONTAL,
             self::DISPOSITION_INLINE,
-            self::DISPOSITION_SEARCH
+            self::DISPOSITION_SEARCH,
         ])) {
             $this->_addClassNames('form-' . $disposition);
         }
@@ -158,7 +157,7 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
      * Extract the class names from a Zend_Form_Element if given or from the
      * base form
      *
-     * @param  Zend_Form_Element $element
+     * @param Zend_Form_Element $element
      *
      * @return array
      */
@@ -174,7 +173,7 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
     /**
      * Render form
      *
-     * @param  Zend_View_Interface $view
+     * @param Zend_View_Interface $view
      *
      * @return string
      */

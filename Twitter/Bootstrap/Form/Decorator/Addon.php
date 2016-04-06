@@ -22,7 +22,7 @@ class Twitter_Bootstrap_Form_Decorator_Addon extends Zend_Form_Decorator_Abstrac
 {
     /**
      *
-     * @param  string $content
+     * @param string $content
      *
      * @return string
      */

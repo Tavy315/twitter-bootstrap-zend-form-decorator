@@ -33,7 +33,7 @@ class Twitter_Bootstrap_Form_Inline extends Twitter_Bootstrap_Form
             [ 'Addon' ],
             [ 'ElementErrors' ],
             [ 'Label', [ 'class' => 'sr-only' ] ],
-            [ 'Wrapper' ]
+            [ 'Wrapper' ],
         ]);
     }
 

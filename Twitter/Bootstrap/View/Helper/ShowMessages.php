@@ -27,8 +27,8 @@ class Twitter_Bootstrap_View_Helper_ShowMessages extends Zend_View_Helper_Abstra
 
     /**
      *
-     * @param  string $message
-     * @param  string $type
+     * @param string|array|Zend_Exception $messages
+     * @param string                      $type
      *
      * @return string
      */
@@ -56,5 +56,4 @@ class Twitter_Bootstrap_View_Helper_ShowMessages extends Zend_View_Helper_Abstra
 
         return $content . '</div>';
     }
-
 }

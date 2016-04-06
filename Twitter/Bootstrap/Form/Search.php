@@ -43,14 +43,14 @@ final class Twitter_Bootstrap_Form_Search extends Twitter_Bootstrap_Form_Inline
         $placeholder = isset($options['placeholder']) ? $options['placeholder'] : null;
         $this->addElement('text', $inputName, [
             'class'       => 'search-query',
-            'placeholder' => $placeholder
+            'placeholder' => $placeholder,
         ]);
 
         if ($renderButton) {
             $buttonLabel = isset($options['submitLabel']) ? $options['submitLabel'] : 'Submit';
             $this->addElement('submit', 'submit', [
                 'class' => 'btn btn-default',
-                'label' => $buttonLabel
+                'label' => $buttonLabel,
             ]);
         }
 
