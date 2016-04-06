@@ -2,26 +2,27 @@
 /**
  * A custom display group definition for Twitter's Bootstrap forms
  *
- * @category Forms
- * @package Twitter_Bootstrap
+ * @category   Forms
+ * @package    Twitter_Bootstrap
  * @subpackage Form
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 
 /**
  * Displays the fieldsets the Bootstrap's way
  *
- * @category Forms
- * @package Twitter_Bootstrap
+ * @category   Forms
+ * @package    Twitter_Bootstrap
  * @subpackage Form
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_DisplayGroup extends Zend_Form_DisplayGroup
 {
     /**
      * Override the default decorators
      *
-     * @return Twitter_Bootstrap_Form_DisplayGroup
+     * @return $this
+     * @throws \Zend_Form_Exception
      */
     public function loadDefaultDecorators()
     {
@@ -34,7 +35,7 @@ class Twitter_Bootstrap_Form_DisplayGroup extends Zend_Form_DisplayGroup
             $this->addDecorator('FormElements')
                  ->addDecorator('Fieldset');
         }
+
         return $this;
     }
-
 }

@@ -2,19 +2,19 @@
 /**
  * View helper definition
  *
- * @category Forms
- * @package Twitter_Bootstrap_View
+ * @category   Forms
+ * @package    Twitter_Bootstrap_View
  * @subpackage Helper
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 
 /**
  * Helper to generate a "file" element with the Twitter's Bootstrap UI
  *
- * @category Forms
- * @package Twitter_Bootstrap_View
+ * @category   Forms
+ * @package    Twitter_Bootstrap_View
  * @subpackage Helper
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_View_Helper_FormFile extends Zend_View_Helper_FormFile
 {
@@ -23,11 +23,11 @@ class Twitter_Bootstrap_View_Helper_FormFile extends Zend_View_Helper_FormFile
      *
      * @access public
      *
-     * @param string|array $name If a string, the element name.  If an
-     * array, all other parameters are ignored, and the array elements
-     * are extracted in place of added parameters.
+     * @param string|array $name    If a string, the element name.  If an
+     *                              array, all other parameters are ignored, and the array elements
+     *                              are extracted in place of added parameters.
      *
-     * @param array $attribs Attributes for the element tag.
+     * @param array        $attribs Attributes for the element tag.
      *
      * @return string The element XHTML.
      */
@@ -41,7 +41,7 @@ class Twitter_Bootstrap_View_Helper_FormFile extends Zend_View_Helper_FormFile
 
         // is it disabled?
         $disabled = '';
-        if ($disable) {
+        if ($disabled) {
             $attribs['class'] .= ' disabled';
             $disabled = ' disabled="disabled"';
         }
@@ -51,16 +51,16 @@ class Twitter_Bootstrap_View_Helper_FormFile extends Zend_View_Helper_FormFile
         // XHTML or HTML end tag?
         $endTag = ' />';
         if (($this->view instanceof Zend_View_Abstract) && !$this->view->doctype()->isXhtml()) {
-            $endTag= '>';
+            $endTag = '>';
         }
 
         // build the element
         $xhtml = '<input type="file"'
-                . ' name="' . $this->view->escape($name) . '"'
-                . ' id="' . $this->view->escape($id) . '"'
-                . $disabled
-                . $this->_htmlAttribs($attribs)
-                . $endTag;
+            . ' name="' . $this->view->escape($name) . '"'
+            . ' id="' . $this->view->escape($id) . '"'
+            . $disabled
+            . $this->_htmlAttribs($attribs)
+            . $endTag;
 
         return $xhtml;
     }

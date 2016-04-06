@@ -2,32 +2,32 @@
 /**
  * View helper definition
  *
- * @category Helpers
- * @package Twitter_Bootstrap_View
+ * @category   Helpers
+ * @package    Twitter_Bootstrap_View
  * @subpackage Helper
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 
 /**
  * A helper to render a set of checkboxes
  *
- * @category Helpers
- * @package Twitter_Bootstrap_View
+ * @category   Helpers
+ * @package    Twitter_Bootstrap_View
  * @subpackage Helper
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_FormMultiCheckbox
 {
     public function formMultiCheckbox($name, $value = null, $attribs = null,
-                                      $options = null, $listsep = '')
+        $options = null, $listsep = '')
     {
         $info = $this->_getInfo($name, $value, $attribs, $options, $listsep);
         extract($info); // name, value, attribs, options, listsep, disable
 
         // retrieve attributes for labels (prefixed with 'label_' or 'label')
-        $label_attribs = array();
+        $label_attribs = [ ];
         foreach ($attribs as $key => $val) {
-            $tmp    = false;
+            $tmp = false;
             $keyLen = strlen($key);
             if ((6 < $keyLen) && (substr($key, 0, 6) == 'label_')) {
                 $tmp = substr($key, 6);
@@ -55,7 +55,7 @@ class Twitter_Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_F
                 case 'placement':
                     unset($label_attribs[$key]);
                     $val = strtolower($val);
-                    if (in_array($val, array('prepend', 'append'))) {
+                    if (in_array($val, [ 'prepend', 'append' ])) {
                         $labelPlacement = $val;
                     }
                     break;
@@ -67,7 +67,7 @@ class Twitter_Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_F
 
         // build the element
         $xhtml = '';
-        $list  = array();
+        $list = [ ];
 
         // should the name affect an array collection?
         $name = $this->view->escape($name);
@@ -81,7 +81,7 @@ class Twitter_Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_F
         // XHTML or HTML end tag?
         $endTag = ' />';
         if (($this->view instanceof Zend_View_Abstract) && !$this->view->doctype()->isXhtml()) {
-            $endTag= '>';
+            $endTag = '>';
         }
 
         // Set up the filter - Alnum + hyphen + underscore
@@ -118,17 +118,17 @@ class Twitter_Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_F
 
             // Wrap the radios in labels
             $radio = '<label'
-                    . $this->_htmlAttribs($label_attribs) . ' for="' . $optId . '">'
-                    . '<input type="' . $this->_inputType . '"'
-                    . ' name="' . $name . '"'
-                    . ' id="' . $optId . '"'
-                    . ' value="' . $this->view->escape($opt_value) . '"'
-                    . $checked
-                    . $disabled
-                    . $this->_htmlAttribs($attribs)
-                    . $endTag
-                    . '<span>' . $opt_label . '</span>'
-                    . '</label>';
+                . $this->_htmlAttribs($label_attribs) . ' for="' . $optId . '">'
+                . '<input type="' . $this->_inputType . '"'
+                . ' name="' . $name . '"'
+                . ' id="' . $optId . '"'
+                . ' value="' . $this->view->escape($opt_value) . '"'
+                . $checked
+                . $disabled
+                . $this->_htmlAttribs($attribs)
+                . $endTag
+                . '<span>' . $opt_label . '</span>'
+                . '</label>';
 
             // add to the array of radio buttons
             $list[] = $radio;

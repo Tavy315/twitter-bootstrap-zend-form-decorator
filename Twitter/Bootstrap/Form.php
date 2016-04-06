@@ -2,19 +2,19 @@
 /**
  * Base form class definition
  *
- * @category Forms
- * @package Twitter
+ * @category   Forms
+ * @package    Twitter
  * @subpackage Bootstrap
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 
 /**
  * This is the base abstract form for the Twitter's Bootstrap UI
  *
- * @category Forms
- * @package Twitter
+ * @category   Forms
+ * @package    Twitter
  * @subpackage Bootstrap
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 abstract class Twitter_Bootstrap_Form extends Zend_Form
 {
@@ -22,10 +22,16 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
      * Class constants
      */
     const DISPOSITION_HORIZONTAL = 'horizontal';
-    const DISPOSITION_INLINE     = 'inline';
-    const DISPOSITION_SEARCH     = 'search';
+    const DISPOSITION_INLINE = 'inline';
+    const DISPOSITION_SEARCH = 'search';
 
     protected $_prefixesInitialized = false;
+
+    protected $_labelColSize = 2;
+    protected $_fieldColSize = 3;
+
+    public $_allowedColType = [ 'xs', 'sm', 'md', 'lg' ];
+    protected $_colType = 'lg';
 
     /**
      * Override the base form constructor.
@@ -36,21 +42,41 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
     {
         $this->_initializePrefixes();
 
-        $this->setDecorators(array(
+        $this->setDecorators([
             'FormElements',
             'Form'
-        ));
+        ]);
 
         parent::__construct($options);
+
+        $this->_initializeFieldColSize();
+    }
+
+    protected function _initializeFieldColSize()
+    {
+        foreach ($this->getElements() as $element) {
+            if (!$element instanceof Zend_Form_Element_Submit
+                and !$element instanceof Zend_Form_Element_Button
+                and !$element instanceof Zend_Form_Element_Image
+                and !$element instanceof Zend_Form_Element_Checkbox
+                and !$element instanceof Zend_Form_Element_MultiCheckbox
+                and !$element instanceof Zend_Form_Element_Radio
+            ) {
+                $this->_addClassNames([
+                    'form-control',
+                    'col-' . $this->_getColType() . '-' . $this->_getFieldColSize()
+                ], $element);
+            }
+        }
     }
 
     protected function _initializePrefixes()
     {
-        if (!$this->_prefixesInitialized)
-        {
-            if (null !== $this->getView())
-            {
-                $this->getView()->addHelperPath(
+        if (!$this->_prefixesInitialized) {
+            /** @var Zend_View $view */
+            $view = $this->getView();
+            if (null !== $view) {
+                $view->addHelperPath(
                     'Twitter/Bootstrap/View/Helper',
                     'Twitter_Bootstrap_View_Helper'
                 );
@@ -84,34 +110,37 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
      */
     public function setDisposition($disposition)
     {
-        if (
-            in_array(
-                $disposition,
-                array(
-                    self::DISPOSITION_HORIZONTAL,
-                    self::DISPOSITION_INLINE,
-                    self::DISPOSITION_SEARCH
-                )
-            )
-        ) {
+        if (in_array($disposition, [
+            self::DISPOSITION_HORIZONTAL,
+            self::DISPOSITION_INLINE,
+            self::DISPOSITION_SEARCH
+        ])) {
             $this->_addClassNames('form-' . $disposition);
         }
     }
 
     /**
-     * Adds a class name
+     * Adds a class name to a Zend_Form_Element if given or to the base form
      *
-     * @param string $classNames
+     * @param string            $classNames
+     * @param Zend_Form_Element $element
      */
-    protected function _addClassNames($classNames)
+    protected function _addClassNames($classNames, Zend_Form_Element $element = null)
     {
-        $classes = $this->_getClassNames();
+        if (null !== $element) {
+            $classes = $this->_getClassNames($element);
+        } else {
+            $element = $this;
+            $classes = $this->_getClassNames();
+        }
 
         foreach ((array) $classNames as $className) {
             $classes[] = $className;
         }
 
-        $this->setAttrib('class', trim(implode(' ', array_unique($classes))));
+        $classes = array_unique($classes);
+
+        $element->setAttrib('class', trim(implode(' ', $classes)));
     }
 
     /**
@@ -121,14 +150,16 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
      */
     protected function _removeClassNames($classNames)
     {
-        $this->setAttrib('class', trim(implode(' ', array_diff($this->_getClassNames(), (array) $classNames))));
+        $classes = array_diff($this->_getClassNames(), (array) $classNames);
+        $this->setAttrib('class', trim(implode(' ', $classes)));
     }
 
     /**
      * Extract the class names from a Zend_Form_Element if given or from the
      * base form
      *
-     * @param Zend_Form_Element $element
+     * @param  Zend_Form_Element $element
+     *
      * @return array
      */
     protected function _getClassNames(Zend_Form_Element $element = null)
@@ -144,17 +175,19 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
      * Render form
      *
      * @param  Zend_View_Interface $view
+     *
      * @return string
      */
-    public function render(Zend_View_Interface $view = null) {
-
+    public function render(Zend_View_Interface $view = null)
+    {
         /**
          * Getting elements.
          */
         $elements = $this->getElements();
 
+        /** @var Zend_Form_Element $eachElement */
         foreach ($elements as $eachElement) {
-            
+
             /**
              * Add required attribute to required elements
              * https://github.com/manticorp
@@ -173,14 +206,14 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
             /**
              * No decorators for hidden elements
              */
-            if( $eachElement instanceof Zend_Form_Element_Hidden ) {
+            if ($eachElement instanceof Zend_Form_Element_Hidden) {
                 $eachElement->clearDecorators()->addDecorator('ViewHelper');
             }
 
             /**
              * No decorators for hash elements
              */
-            if( $eachElement instanceof Zend_Form_Element_Hash ) {
+            if ($eachElement instanceof Zend_Form_Element_Hash) {
                 $eachElement->clearDecorators()->addDecorator('ViewHelper');
             }
         }
@@ -188,6 +221,39 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
         /**
          * Rendering.
          */
+
         return parent::render($view);
+    }
+
+    protected function _getLabelColSize()
+    {
+        return $this->_labelColSize;
+    }
+
+    protected function _getFieldColSize()
+    {
+        return $this->_fieldColSize;
+    }
+
+    protected function _getColType()
+    {
+        return $this->_colType;
+    }
+
+    public function setLabelColSize($size)
+    {
+        $this->_labelColSize = intval($size);
+    }
+
+    public function setFieldColSize($size)
+    {
+        $this->_fieldColSize = intval($size);
+    }
+
+    public function setColType($type)
+    {
+        if (in_array($type, $this->_allowedColType)) {
+            $this->_colType = $type;
+        }
     }
 }

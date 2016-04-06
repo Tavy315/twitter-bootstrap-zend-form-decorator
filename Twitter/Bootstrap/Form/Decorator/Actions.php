@@ -2,19 +2,19 @@
 /**
  * Decorator definition for the submit buttons
  *
- * @category Forms
- * @package Twitter_Bootstrap_Form
+ * @category   Forms
+ * @package    Twitter_Bootstrap_Form
  * @subpackage Decorator
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 
 /**
  * A decorator to render the submit form buttons
  *
- * @category Forms
- * @package Twitter_Bootstrap_Form
+ * @category   Forms
+ * @package    Twitter_Bootstrap_Form
  * @subpackage Decorator
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_Decorator_Actions extends Zend_Form_Decorator_Abstract
 {
@@ -27,8 +27,8 @@ class Twitter_Bootstrap_Form_Decorator_Actions extends Zend_Form_Decorator_Abstr
     {
         $output = '';
         foreach ($this->getElement() as $element) {
-            if($element !== null && $element instanceof Zend_Form_Element) {
-                $element->setDecorators(array(array('ViewHelper')));
+            if ($element !== null && $element instanceof Zend_Form_Element) {
+                $element->setDecorators([ [ 'ViewHelper' ] ]);
                 $output .= $element->render();
             }
         }
@@ -40,10 +40,23 @@ class Twitter_Bootstrap_Form_Decorator_Actions extends Zend_Form_Decorator_Abstr
      * Renders the content
      *
      * @param string $content
+     *
      * @return string
      */
     public function render($content)
     {
-        return '<div class="form-actions">' . $this->buildButtons() . '</div>';
+        $class = $this->getElement()->getAttrib('class');
+
+        if (null === $class) {
+            $class = '';
+        }
+
+        return '<div class="form-actions">'
+        . '<div class="row">'
+        . '<div class="' . $class . '">'
+        . $this->buildButtons()
+        . '</div>'
+        . '</div>'
+        . '</div>';
     }
 }

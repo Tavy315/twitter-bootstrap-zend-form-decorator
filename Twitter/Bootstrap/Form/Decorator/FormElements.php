@@ -2,48 +2,50 @@
 /**
  * Form decorator definition
  *
- * @category Forms
- * @package Twitter_Bootstrap_Form_Decorator
+ * @category   Forms
+ * @package    Twitter_Bootstrap_Form_Decorator
  * @subpackage FormElements
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 
 /**
  * Renders the form body
  *
- * @category Forms
- * @package Twitter_Bootstrap_Form_Decorator
+ * @category   Forms
+ * @package    Twitter_Bootstrap_Form_Decorator
  * @subpackage FormElements
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_Decorator_FormElements extends Zend_Form_Decorator_FormElements
 {
     /**
      * Render form elements
      *
-     * @param  string $content
+     * @param string $content
+     *
      * @return string
      */
     public function render($content)
     {
-        $form    = $this->getElement();
+        $form = $this->getElement();
         if ((!$form instanceof Zend_Form) && (!$form instanceof Zend_Form_DisplayGroup)) {
             return $content;
         }
 
-        $belongsTo      = ($form instanceof Zend_Form) ? $form->getElementsBelongTo() : null;
-        $displayGroups  = ($form instanceof Zend_Form) ? $form->getDisplayGroups() : array();
-        $separator      = $this->getSeparator();
-        $translator     = $form->getTranslator();
-        $items          = array();
-        $view           = $form->getView();
+        $belongsTo = ($form instanceof Zend_Form) ? $form->getElementsBelongTo() : null;
+        $displayGroups = ($form instanceof Zend_Form) ? $form->getDisplayGroups() : [ ];
+        $translator = $form->getTranslator();
+        $view = $form->getView();
+
+        $items = [ ];
         foreach ($form as $item) {
             $item->setView($view)
                  ->setTranslator($translator);
             if ($item instanceof Zend_Form_Element) {
+                /** @var Zend_Form_DisplayGroup $group */
                 foreach ($displayGroups as $group) {
                     $elementName = $item->getName();
-                    $element     = $group->getElement($elementName);
+                    $element = $group->getElement($elementName);
                     if ($element) {
                         // Element belongs to display group; only render in that
                         // context.
@@ -54,9 +56,9 @@ class Twitter_Bootstrap_Form_Decorator_FormElements extends Zend_Form_Decorator_
             } elseif (!empty($belongsTo) && ($item instanceof Zend_Form)) {
                 if ($item->isArray()) {
                     $name = $this->mergeBelongsTo($belongsTo, $item->getElementsBelongTo());
-                    $item->setElementsBelongTo($name, true);
+                    $item->setElementsBelongTo($name);
                 } else {
-                    $item->setElementsBelongTo($belongsTo, true);
+                    $item->setElementsBelongTo($belongsTo);
                 }
             } elseif (!empty($belongsTo) && ($item instanceof Zend_Form_DisplayGroup)) {
                 foreach ($item as $element) {
@@ -67,7 +69,7 @@ class Twitter_Bootstrap_Form_Decorator_FormElements extends Zend_Form_Decorator_
             // Check if has errors
             if ($item instanceof Zend_Form_Element && $item->hasErrors()) {
                 $class = $item->getAttrib('class');
-                $item->setAttrib('class', $class . ' error');
+                $item->setAttrib('class', $class . ' has-error');
             }
 
             // Check if the element is disabled
@@ -75,11 +77,11 @@ class Twitter_Bootstrap_Form_Decorator_FormElements extends Zend_Form_Decorator_
                 $class = $item->getAttrib('class');
                 $item->setAttrib('class', $class . ' disabled');
             }
-		
+
             // Check if the element is required
             if ($item instanceof Zend_Form_Element && $item->isRequired()) {
                 $item->setAttrib('required', 'required');
-            }	
+            }
 
             $items[] = $item->render();
 
@@ -96,11 +98,14 @@ class Twitter_Bootstrap_Form_Decorator_FormElements extends Zend_Form_Decorator_
                 }
             }
         }
+
+        $separator = $this->getSeparator();
         $elementContent = implode($separator, $items);
 
         switch ($this->getPlacement()) {
             case self::PREPEND:
                 return $elementContent . $separator . $content;
+
             case self::APPEND:
             default:
                 return $content . $separator . $elementContent;

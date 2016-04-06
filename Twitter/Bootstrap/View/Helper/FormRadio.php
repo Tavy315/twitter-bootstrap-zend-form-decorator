@@ -2,30 +2,32 @@
 /**
  * View helper definition
  *
- * @category Helpers
- * @package Twitter_Bootstrap_View
+ * @category   Helpers
+ * @package    Twitter_Bootstrap_View
  * @subpackage Helper
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 
 /**
  * Helper to generate a set of radio button elements
  *
- * @category Helpers
- * @package Twitter_Bootstrap_View
+ * @category   Helpers
+ * @package    Twitter_Bootstrap_View
  * @subpackage Helper
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormElement
 {
     /**
      * Input type to use
+     *
      * @var string
      */
     protected $_inputType = 'radio';
 
     /**
      * Whether or not this element represents an array collection by default
+     *
      * @var bool
      */
     protected $_isArray = false;
@@ -35,14 +37,14 @@ class Twitter_Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormEleme
      *
      * @access public
      *
-     * @param string|array $name If a string, the element name.  If an
-     * array, all other parameters are ignored, and the array elements
-     * are extracted in place of added parameters.
+     * @param string|array $name    If a string, the element name.  If an
+     *                              array, all other parameters are ignored, and the array elements
+     *                              are extracted in place of added parameters.
      *
-     * @param mixed $value The radio value to mark as 'checked'.
+     * @param mixed        $value   The radio value to mark as 'checked'.
      *
-     * @param array $options An array of key-value pairs where the array
-     * key is the radio value, and the array value is the radio text.
+     * @param array        $options An array of key-value pairs where the array
+     *                              key is the radio value, and the array value is the radio text.
      *
      * @param array|string $attribs Attributes added to each radio.
      *
@@ -54,9 +56,9 @@ class Twitter_Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormEleme
         extract($info); // name, value, attribs, options, listsep, disable
 
         // retrieve attributes for labels (prefixed with 'label_' or 'label')
-        $label_attribs = array();
+        $label_attribs = [ ];
         foreach ($attribs as $key => $val) {
-            $tmp    = false;
+            $tmp = false;
             $keyLen = strlen($key);
             if ((6 < $keyLen) && (substr($key, 0, 6) == 'label_')) {
                 $tmp = substr($key, 6);
@@ -85,7 +87,7 @@ class Twitter_Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormEleme
                 case 'placement':
                     unset($label_attribs[$key]);
                     $val = strtolower($val);
-                    if (in_array($val, array('prepend', 'append'))) {
+                    if (in_array($val, [ 'prepend', 'append' ])) {
                         $labelPlacement = $val;
                     }
                     break;
@@ -97,7 +99,7 @@ class Twitter_Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormEleme
 
         // build the element
         $xhtml = '';
-        $list  = array();
+        $list = [ ];
 
         // should the name affect an array collection?
         $name = $this->view->escape($name);
@@ -111,7 +113,7 @@ class Twitter_Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormEleme
         // XHTML or HTML end tag?
         $endTag = ' />';
         if (($this->view instanceof Zend_View_Abstract) && !$this->view->doctype()->isXhtml()) {
-            $endTag= '>';
+            $endTag = '>';
         }
 
         // Set up the filter - Alnum + hyphen + underscore
@@ -148,18 +150,18 @@ class Twitter_Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormEleme
 
             // Wrap the radios in labels
             $radio = '<label'
-                    . $this->_htmlAttribs($label_attribs) . ' for="' . $optId . '">'
-                    . (('prepend' == $labelPlacement) ? $opt_label : '')
-                    . '<input type="' . $this->_inputType . '"'
-                    . ' name="' . $name . '"'
-                    . ' id="' . $optId . '"'
-                    . ' value="' . $this->view->escape($opt_value) . '"'
-                    . $checked
-                    . $disabled
-                    . $this->_htmlAttribs($attribs)
-                    . $endTag
-                    . (('append' == $labelPlacement) ? $opt_label : '')
-                    . '</label>';
+                . $this->_htmlAttribs($label_attribs) . ' for="' . $optId . '">'
+                . (('prepend' == $labelPlacement) ? $opt_label : '')
+                . '<input type="' . $this->_inputType . '"'
+                . ' name="' . $name . '"'
+                . ' id="' . $optId . '"'
+                . ' value="' . $this->view->escape($opt_value) . '"'
+                . $checked
+                . $disabled
+                . $this->_htmlAttribs($attribs)
+                . $endTag
+                . (('append' == $labelPlacement) ? $opt_label : '')
+                . '</label>';
 
             // add to the array of radio buttons
             $list[] = $radio;

@@ -2,19 +2,19 @@
 /**
  * A form button submit definition
  *
- * @category Forms
- * @package Twitter_Bootstrap_Form
+ * @category   Forms
+ * @package    Twitter_Bootstrap_Form
  * @subpackage Element
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 
 /**
  * A form submit button
  *
- * @category Forms
- * @package Twitter_Bootstrap_Form
+ * @category   Forms
+ * @package    Twitter_Bootstrap_Form
  * @subpackage Element
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_Element_Submit extends Zend_Form_Element_Submit
 {
@@ -26,7 +26,7 @@ class Twitter_Bootstrap_Form_Element_Submit extends Zend_Form_Element_Submit
     const BUTTON_INVERSE = 'inverse';
     const BUTTON_LINK = 'link';
 
-    protected $buttons = array(
+    protected $_buttons = [
         self::BUTTON_DANGER,
         self::BUTTON_INFO,
         self::BUTTON_PRIMARY,
@@ -34,12 +34,12 @@ class Twitter_Bootstrap_Form_Element_Submit extends Zend_Form_Element_Submit
         self::BUTTON_WARNING,
         self::BUTTON_INVERSE,
         self::BUTTON_LINK
-    );
+    ];
 
     /**
      * Class constructor
      *
-     * @param $spec
+     * @param       $spec
      * @param array $options
      */
     public function __construct($spec, $options = null)
@@ -51,8 +51,9 @@ class Twitter_Bootstrap_Form_Element_Submit extends Zend_Form_Element_Submit
 
         $classes = explode(' ', $options['class']);
         $classes[] = 'btn';
+        $classes[] = 'btn-default';
 
-        if (isset($options['buttonType']) && in_array( $options['buttonType'], $this->buttons )) {
+        if (isset($options['buttonType']) && in_array($options['buttonType'], $this->_buttons)) {
             $classes[] = 'btn-' . $options['buttonType'];
             unset($options['buttonType']);
         }
@@ -63,7 +64,7 @@ class Twitter_Bootstrap_Form_Element_Submit extends Zend_Form_Element_Submit
 
         $classes = array_unique($classes);
 
-        $options['class'] = trim( implode(' ', $classes) );
+        $options['class'] = trim(implode(' ', $classes));
 
         parent::__construct($spec, $options);
     }

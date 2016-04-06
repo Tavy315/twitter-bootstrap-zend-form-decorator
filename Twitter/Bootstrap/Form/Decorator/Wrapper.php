@@ -2,21 +2,21 @@
 /**
  * Form decorator definition
  *
- * @category Forms
- * @package Twitter_Bootstrap_Form
+ * @category   Forms
+ * @package    Twitter_Bootstrap_Form
  * @subpackage Decorator
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 
 /**
  * Defines a decorator to wrap all the Bootstrap form elements
  *
- * @category Forms
- * @package Twitter_Bootstrap_Form
+ * @category   Forms
+ * @package    Twitter_Bootstrap_Form
  * @subpackage Decorator
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
-class Twitter_Bootstrap_Form_Decorator_Wrapper extends Zend_Form_Decorator_Abstract
+class Twitter_Bootstrap_Form_Decorator_Wrapper extends Zend_Form_Decorator_HtmlTag
 {
     /**
      * Renders a form element decorating it with the Twitter's Bootstrap markup
@@ -27,8 +27,22 @@ class Twitter_Bootstrap_Form_Decorator_Wrapper extends Zend_Form_Decorator_Abstr
      */
     public function render($content)
     {
-        $hasErrors = $this->getElement()->hasErrors();
+        $class = $this->getOption('class');
 
-        return '<div class="control-group' . (($hasErrors) ? ' error' : '') . '">' . $content . '</div>';
+        if (null === $class) {
+            $classes = [ ];
+        } else {
+            $classes = explode(' ', $class);
+        }
+
+        $classes[] = 'form-group';
+
+        if ($this->getElement()->hasErrors()) {
+            $classes[] = 'has-error';
+        }
+
+        $this->setOption('class', trim(implode(' ', $classes)));
+
+        return parent::render($content);
     }
 }

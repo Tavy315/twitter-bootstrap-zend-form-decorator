@@ -2,24 +2,26 @@
 /**
  * A form file definition
  *
- * @category Forms
- * @package Twitter_Bootstrap_Form
+ * @category   Forms
+ * @package    Twitter_Bootstrap_Form
  * @subpackage Element
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 
 /**
  * A form file element
  *
- * @category Forms
- * @package Twitter_Bootstrap_Form
+ * @category   Forms
+ * @package    Twitter_Bootstrap_Form
  * @subpackage Element
- * @author Christian Soronellas <csoronellas@emagister.com>
+ * @author     Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_Element_File extends Zend_Form_Element_File
 {
     /**
      * Adds a file decorator if no one found
+     *
+     * @return $this
      */
     public function loadDefaultDecorators()
     {
@@ -29,16 +31,18 @@ class Twitter_Bootstrap_Form_Element_File extends Zend_Form_Element_File
 
         if (!$this->_existsFileDecorator()) {
             // Add the file decorator to the beginning
-            $decorators = array_merge(array('File'), $this->getDecorators());
+            $decorators = array_merge([ 'File' ], $this->getDecorators());
             $this->setDecorators($decorators);
             $this->removeDecorator('ViewHelper');
         }
+
         return $this;
     }
 
     /**
-     * Checks if a file decorator has been added to the decorators
-     * stack
+     * Checks if a file decorator has been added to the decorators stack
+     *
+     * @return bool
      */
     protected function _existsFileDecorator()
     {
