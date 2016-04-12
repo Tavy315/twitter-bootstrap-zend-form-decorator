@@ -46,6 +46,7 @@ class Twitter_Bootstrap_Form_Element_Button extends Twitter_Bootstrap_Form_Eleme
             $options['escape'] = false;
 
             $this->_icon = $options['icon'];
+            unset($options['icon']);
 
             if (isset($options['whiteIcon']) && true === $options['whiteIcon']) {
                 $this->_icon .= ' icon-white';
@@ -58,8 +59,6 @@ class Twitter_Bootstrap_Form_Element_Button extends Twitter_Bootstrap_Form_Eleme
                 }
                 unset($options['iconPosition']);
             }
-
-            unset($options['icon']);
         }
 
         parent::__construct($spec, $options);
@@ -83,10 +82,13 @@ class Twitter_Bootstrap_Form_Element_Button extends Twitter_Bootstrap_Form_Eleme
     public function getLabel()
     {
         // Render the icon on either side
-        if (strcasecmp($this->_iconPosition, self::ICON_POSITION_LEFT) === 0) {
-            return $this->_renderIcon() . PHP_EOL . parent::getLabel();
-        }
+        return strcasecmp($this->_iconPosition, self::ICON_POSITION_LEFT) === 0
+            ? $this->_renderIcon() . PHP_EOL . parent::getLabel()
+            : parent::getLabel() . PHP_EOL . $this->_renderIcon();
+    }
 
-        return parent::getLabel() . PHP_EOL . $this->_renderIcon();
+    public function getValue()
+    {
+        return parent::getLabel();
     }
 }

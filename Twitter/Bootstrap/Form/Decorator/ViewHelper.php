@@ -19,6 +19,42 @@
 class Twitter_Bootstrap_Form_Decorator_ViewHelper extends Zend_Form_Decorator_ViewHelper
 {
     /**
+     * Get value
+     *
+     * If element type is one of the button types, returns the label.
+     *
+     * @param  Zend_Form_Element $element
+     *
+     * @return string|null
+     */
+    public function getValue($element)
+    {
+        if (!$element instanceof Zend_Form_Element) {
+            return null;
+        }
+
+        foreach ($this->_buttonTypes as $type) {
+            if ($element instanceof $type) {
+                if (stristr($type, 'submit')) {
+                    $element->content = $element->getLabel();
+
+                    return $element->getValue();
+                }
+
+                if (stristr($type, 'button')) {
+                    $element->content = $element->getLabel();
+
+                    return $element->getValue();
+                }
+
+                return $element->getLabel();
+            }
+        }
+
+        return $element->getValue();
+    }
+
+    /**
      * Renders a form element decorating it with the Twitter's Bootstrap markup
      *
      * @param string $content

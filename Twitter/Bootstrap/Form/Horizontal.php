@@ -44,10 +44,7 @@ class Twitter_Bootstrap_Form_Horizontal extends Twitter_Bootstrap_Form
                 $class = $htmlTagDecorator->getOption('class');
                 $htmlTagDecorator->setOption('class', 'checkbox ' . $class);
                 $element->addDecorator($htmlTagDecorator);
-            } elseif ($element instanceof Zend_Form_Element_Submit
-                or $element instanceof Zend_Form_Element_Button
-                /*or $element instanceof Zend_Form_Element_Image*/
-            ) {
+            } elseif ($element instanceof Zend_Form_Element_Submit || $element instanceof Zend_Form_Element_Button) {
                 $decorators = $element->getDecorators();
                 /** @var Zend_Form_Decorator_HtmlTag $htmlTagDecorator */
                 $htmlTagDecorator = $decorators['Zend_Form_Decorator_HtmlTag'];
@@ -89,8 +86,8 @@ class Twitter_Bootstrap_Form_Horizontal extends Twitter_Bootstrap_Form
 
     protected function _manageDecoratorsForButtons($current, $next)
     {
-        if ($current instanceof Zend_Form_Element_Submit or $current instanceof Zend_Form_Element_Button) {
-            if ($next instanceof Zend_Form_Element_Submit or $next instanceof Zend_Form_Element_Button) {
+        if ($current instanceof Zend_Form_Element_Submit || $current instanceof Zend_Form_Element_Button) {
+            if ($next instanceof Zend_Form_Element_Submit || $next instanceof Zend_Form_Element_Button) {
                 $currentHtmlTagDecorator = $current->getDecorator('Zend_Form_Decorator_HtmlTag');
                 if (!$currentHtmlTagDecorator->getOption('closeOnly')) {
                     $currentHtmlTagDecorator->setOption('openOnly', true);
