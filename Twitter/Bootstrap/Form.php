@@ -54,12 +54,12 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
     protected function _initializeFieldColSize()
     {
         foreach ($this->getElements() as $element) {
-            if (!$element instanceof Zend_Form_Element_Submit
-                and !$element instanceof Zend_Form_Element_Button
-                and !$element instanceof Zend_Form_Element_Image
-                and !$element instanceof Zend_Form_Element_Checkbox
-                and !$element instanceof Zend_Form_Element_MultiCheckbox
-                and !$element instanceof Zend_Form_Element_Radio
+            if (!$element instanceof Zend_Form_Element_Submit &&
+                !$element instanceof Zend_Form_Element_Button &&
+                !$element instanceof Zend_Form_Element_Image &&
+                !$element instanceof Zend_Form_Element_Checkbox &&
+                !$element instanceof Zend_Form_Element_MultiCheckbox &&
+                !$element instanceof Zend_Form_Element_Radio
             ) {
                 $this->_addClassNames([
                     'form-control',
