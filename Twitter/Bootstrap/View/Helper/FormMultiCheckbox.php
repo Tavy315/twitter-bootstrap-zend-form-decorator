@@ -47,7 +47,7 @@ class Twitter_Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_F
             $label_attribs['class'] = '';
         }
 
-        $label_attribs['class'] = trim('checkbox ' . $label_attribs['class']);
+        $label_attribs['class'] = trim($label_attribs['class']);
 
         $labelPlacement = 'append';
         foreach ($label_attribs as $key => $val) {
@@ -117,7 +117,7 @@ class Twitter_Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_F
             $optId = $id . '-' . $filter->filter($opt_value);
 
             // Wrap the radios in labels
-            $radio = '<label'
+            $radio = '<div class="checkbox"><label'
                 . $this->_htmlAttribs($label_attribs) . ' for="' . $optId . '">'
                 . '<input type="' . $this->_inputType . '"'
                 . ' name="' . $name . '"'
@@ -128,7 +128,7 @@ class Twitter_Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_F
                 . $this->_htmlAttribs($attribs)
                 . $endTag
                 . '<span>' . $opt_label . '</span>'
-                . '</label>';
+                . '</label></div>';
 
             // add to the array of radio buttons
             $list[] = $radio;

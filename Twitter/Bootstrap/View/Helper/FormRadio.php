@@ -78,7 +78,6 @@ class Twitter_Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormEleme
             $label_attribs['class'] = '';
         }
 
-        $label_attribs['class'] .= ' radio';
         $label_attribs['class'] = trim($label_attribs['class']);
 
         $labelPlacement = 'append';
@@ -149,7 +148,7 @@ class Twitter_Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormEleme
             $optId = $id . '-' . $filter->filter($opt_value);
 
             // Wrap the radios in labels
-            $radio = '<label'
+            $radio = '<div class="radio"><label'
                 . $this->_htmlAttribs($label_attribs) . ' for="' . $optId . '">'
                 . (('prepend' == $labelPlacement) ? $opt_label : '')
                 . '<input type="' . $this->_inputType . '"'
@@ -161,7 +160,7 @@ class Twitter_Bootstrap_View_Helper_FormRadio extends Zend_View_Helper_FormEleme
                 . $this->_htmlAttribs($attribs)
                 . $endTag
                 . (('append' == $labelPlacement) ? $opt_label : '')
-                . '</label>';
+                . '</label></div>';
 
             // add to the array of radio buttons
             $list[] = $radio;
