@@ -1,20 +1,9 @@
 <?php
 /**
- * Form decorator definition
- *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form_Decorator
- * @subpackage FormElements
- * @author     Christian Soronellas <csoronellas@emagister.com>
- */
-
-/**
  * Renders the form body
  *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form_Decorator
- * @subpackage FormElements
- * @author     Christian Soronellas <csoronellas@emagister.com>
+ * @package Twitter_Bootstrap
+ * @author  Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_Decorator_FormElements extends Zend_Form_Decorator_FormElements
 {

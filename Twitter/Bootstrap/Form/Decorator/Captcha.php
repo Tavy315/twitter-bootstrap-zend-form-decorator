@@ -1,20 +1,11 @@
 <?php
 /**
- * @category    Forms
- * @package     Twitter_Bootstrap_Form
- * @subpackage  Decorator
- * @author      Rafał Gałka <rafal.galka@modernweb.pl>
- */
-
-/**
  * Captcha decorator.
  *
  * Surrounds <img> with the <label> tag for extra line spacing.
  *
- * @category    Forms
- * @package     Twitter_Bootstrap_Form
- * @subpackage  Decorator
- * @author      Rafał Gałka <rafal.galka@modernweb.pl>
+ * @package Twitter_Bootstrap
+ * @author  Rafał Gałka <rafal.galka@modernweb.pl>
  */
 class Twitter_Bootstrap_Form_Decorator_Captcha extends Zend_Form_Decorator_Captcha
 {

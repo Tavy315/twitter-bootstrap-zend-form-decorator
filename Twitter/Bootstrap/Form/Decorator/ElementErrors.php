@@ -1,20 +1,9 @@
 <?php
 /**
- * Defines a decorator to handle form field errors
- *
- * @category   Form
- * @package    Twitter_Bootstrap_Form
- * @subpackage Decorator
- * @author     Christian Soronellas <csoronellas@emagister.com>
- */
-
-/**
  * A decorator to render the form element errors
  *
- * @category   Form
- * @package    Twitter_Bootstrap_Form
- * @subpackage Decorator
- * @author     Christian Soronellas <csoronellas@emagister.com>
+ * @package Twitter_Bootstrap
+ * @author  Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_Decorator_ElementErrors extends Zend_Form_Decorator_Abstract
 {

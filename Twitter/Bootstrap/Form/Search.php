@@ -1,20 +1,9 @@
 <?php
 /**
- * Form definition
- *
- * @category   Forms
- * @package    Twitter_Bootstrap
- * @subpackage Form
- * @author     Christian Soronellas <csoronellas@emagister.com>
- */
-
-/**
  * Base form class for search forms.
  *
- * @category   Forms
- * @package    Twitter_Bootstrap
- * @subpackage Form
- * @author     Christian Soronellas <csoronellas@emagister.com>
+ * @package Twitter_Bootstrap
+ * @author  Christian Soronellas <csoronellas@emagister.com>
  */
 final class Twitter_Bootstrap_Form_Search extends Twitter_Bootstrap_Form_Inline
 {

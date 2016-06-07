@@ -1,20 +1,9 @@
 <?php
 /**
- * View helper definition
- *
- * @category   Helpers
- * @package    Twitter_Bootstrap_View
- * @subpackage Helper
- * @author     Marcel Araujo <admin@marcelaraujo.me>
- */
-
-/**
  * Helper to generate a message alert
  *
- * @category   Helpers
- * @package    Twitter_Bootstrap_View
- * @subpackage Helper
- * @author     Marcel Araujo <admin@marcelaraujo.me>
+ * @package Twitter_Bootstrap
+ * @author  Marcel Araujo <admin@marcelaraujo.me>
  */
 class Twitter_Bootstrap_View_Helper_ShowMessages extends Zend_View_Helper_Abstract
 {

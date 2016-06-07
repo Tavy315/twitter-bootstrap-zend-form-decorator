@@ -1,20 +1,9 @@
 <?php
 /**
- * A form button submit definition
- *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form
- * @subpackage Element
- * @author     Christian Soronellas <csoronellas@emagister.com>
- */
-
-/**
  * A form submit button
  *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form
- * @subpackage Element
- * @author     Christian Soronellas <csoronellas@emagister.com>
+ * @package Twitter_Bootstrap_Form
+ * @author  Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_Element_Submit extends Zend_Form_Element_Submit
 {

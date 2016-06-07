@@ -1,26 +1,14 @@
 <?php
 /**
- * A form button submit definition
- *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form
- * @subpackage Element
- * @author     Christian Soronellas <csoronellas@emagister.com>
- */
-
-/**
  * A form submit button
  *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form
- * @subpackage Element
- * @author     Christian Soronellas <csoronellas@emagister.com>
+ * @package Twitter_Bootstrap
+ * @author  Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_Element_Button extends Twitter_Bootstrap_Form_Element_Submit
 {
     // Icon Positions
     const ICON_POSITION_LEFT = 'left';
-
     const ICON_POSITION_RIGHT = 'right';
 
     /**

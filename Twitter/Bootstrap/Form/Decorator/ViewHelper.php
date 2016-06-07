@@ -1,20 +1,9 @@
 <?php
 /**
- * Form decorator definition
- *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form
- * @subpackage Decorator
- * @author     Christian Soronellas <csoronellas@emagister.com>
- */
-
-/**
  * Defines a decorator to wrap all the Bootstrap form elements
  *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form
- * @subpackage Decorator
- * @author     Christian Soronellas <csoronellas@emagister.com>
+ * @package Twitter_Bootstrap
+ * @author  Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_Decorator_ViewHelper extends Zend_Form_Decorator_ViewHelper
 {
@@ -23,7 +12,7 @@ class Twitter_Bootstrap_Form_Decorator_ViewHelper extends Zend_Form_Decorator_Vi
      *
      * If element type is one of the button types, returns the label.
      *
-     * @param  Zend_Form_Element $element
+     * @param Zend_Form_Element $element
      *
      * @return string|null
      */
@@ -68,7 +57,6 @@ class Twitter_Bootstrap_Form_Decorator_ViewHelper extends Zend_Form_Decorator_Vi
 
         $view = $element->getView();
         if (null === $view) {
-            require_once 'Zend/Form/Decorator/Exception.php';
             throw new Zend_Form_Decorator_Exception('ViewHelper decorator cannot render without a registered view object');
         }
 

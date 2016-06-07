@@ -1,20 +1,11 @@
 <?php
 /**
- * @category    Forms
- * @package     Twitter_Bootstrap_Form
- * @subpackage  Element
- * @author      Rafał Gałka <rafal.galka@modernweb.pl>
- */
-
-/**
  * Captcha Form element.
  *
  * Supports the order of decorator FieldSize and duplicate text box.
  *
- * @category    Forms
- * @package     Twitter_Bootstrap_Form
- * @subpackage  Element
- * @author      Rafał Gałka <rafal.galka@modernweb.pl>
+ * @package Twitter_Bootstrap
+ * @author  Rafał Gałka <rafal.galka@modernweb.pl>
  */
 class Twitter_Bootstrap_Form_Element_Captcha extends Zend_Form_Element_Captcha
 {

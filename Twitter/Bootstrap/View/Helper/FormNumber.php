@@ -1,21 +1,11 @@
 <?php
 /**
- * Twitter Bootstrap v.3 Form for Zend Framework v.1
- *
- * @category   Forms
- * @package    Twitter_Bootstrap3_View
- * @subpackage Helper
- * @author     Ilya Serdyuk <ilya.serdyuk@youini.org>
- */
-
-/**
  * Helper to generate a "number" element
  *
- * @category   Forms
- * @package    Twitter_Bootstrap3_View
- * @subpackage Helper
+ * @package    Twitter_Bootstrap
+ * @author     Ilya Serdyuk <ilya.serdyuk@youini.org>
  */
-class Twitter_Bootstrap_View_Helper_FormNumber extends Twitter_Bootstrap3_View_Helper_FormText
+class Twitter_Bootstrap_View_Helper_FormNumber extends Twitter_Bootstrap_View_Helper_FormText
 {
     /**
      * Generates a 'number' element.

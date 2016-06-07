@@ -1,20 +1,9 @@
 <?php
 /**
- * A form file definition
- *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form
- * @subpackage Element
- * @author     Christian Soronellas <csoronellas@emagister.com>
- */
-
-/**
  * A form file element
  *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form
- * @subpackage Element
- * @author     Christian Soronellas <csoronellas@emagister.com>
+ * @package Twitter_Bootstrap
+ * @author  Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_Element_File extends Zend_Form_Element_File
 {

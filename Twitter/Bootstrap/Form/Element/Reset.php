@@ -1,20 +1,9 @@
 <?php
 /**
- * A form reset submit definition
- *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form
- * @subpackage Element
- * @author     Christian Soronellas <csoronellas@emagister.com>
- */
-
-/**
  * A form reset button
  *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form
- * @subpackage Element
- * @author     Christian Soronellas <csoronellas@emagister.com>
+ * @package Twitter_Bootstrap
+ * @author  Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_Element_Reset extends Zend_Form_Element_Reset
 {

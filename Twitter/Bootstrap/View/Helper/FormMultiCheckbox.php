@@ -1,20 +1,9 @@
 <?php
 /**
- * View helper definition
- *
- * @category   Helpers
- * @package    Twitter_Bootstrap_View
- * @subpackage Helper
- * @author     Christian Soronellas <csoronellas@emagister.com>
- */
-
-/**
  * A helper to render a set of checkboxes
  *
- * @category   Helpers
- * @package    Twitter_Bootstrap_View
- * @subpackage Helper
- * @author     Christian Soronellas <csoronellas@emagister.com>
+ * @package Twitter_Bootstrap
+ * @author  Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_View_Helper_FormMultiCheckbox extends Zend_View_Helper_FormMultiCheckbox
 {

@@ -1,20 +1,9 @@
 <?php
 /**
- * Base form class definition
- *
- * @category   Forms
- * @package    Twitter
- * @subpackage Bootstrap
- * @author     Christian Soronellas <csoronellas@emagister.com>
- */
-
-/**
  * This is the base abstract form for the Twitter's Bootstrap UI
  *
- * @category   Forms
- * @package    Twitter
- * @subpackage Bootstrap
- * @author     Christian Soronellas <csoronellas@emagister.com>
+ * @package Twitter_Bootstrap
+ * @author  Christian Soronellas <csoronellas@emagister.com>
  */
 abstract class Twitter_Bootstrap_Form extends Zend_Form
 {
@@ -35,7 +24,7 @@ abstract class Twitter_Bootstrap_Form extends Zend_Form
     /**
      * Override the base form constructor.
      *
-     * @param null $options
+     * @param mixed $options
      */
     public function __construct($options = null)
     {

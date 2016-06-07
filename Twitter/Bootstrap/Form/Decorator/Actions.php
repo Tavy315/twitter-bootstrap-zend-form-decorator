@@ -1,20 +1,9 @@
 <?php
 /**
- * Decorator definition for the submit buttons
- *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form
- * @subpackage Decorator
- * @author     Christian Soronellas <csoronellas@emagister.com>
- */
-
-/**
  * A decorator to render the submit form buttons
  *
- * @category   Forms
- * @package    Twitter_Bootstrap_Form
- * @subpackage Decorator
- * @author     Christian Soronellas <csoronellas@emagister.com>
+ * @package Twitter_Bootstrap
+ * @author  Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_Decorator_Actions extends Zend_Form_Decorator_Abstract
 {

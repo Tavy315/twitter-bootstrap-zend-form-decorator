@@ -1,20 +1,9 @@
 <?php
 /**
- * Form definition
- *
- * @category   Forms
- * @package    Twitter_Bootstrap
- * @subpackage Form
- * @author     Christian Soronellas <csoronellas@emagister.com>
- */
-
-/**
  * An "horizontal" Twitter Bootstrap's UI form
  *
- * @category   Forms
- * @package    Twitter_Bootstrap
- * @subpackage Form
- * @author     Christian Soronellas <csoronellas@emagister.com>
+ * @package Twitter_Bootstrap
+ * @author  Christian Soronellas <csoronellas@emagister.com>
  */
 class Twitter_Bootstrap_Form_Horizontal extends Twitter_Bootstrap_Form
 {
@@ -46,7 +35,6 @@ class Twitter_Bootstrap_Form_Horizontal extends Twitter_Bootstrap_Form
                 $htmlTagDecorator->setOption('class', 'checkbox ' . $class);
 
                 $element->addDecorator($htmlTagDecorator);
-
             } elseif ($element instanceof Zend_Form_Element_Submit || $element instanceof Zend_Form_Element_Button) {
                 $decorators = $element->getDecorators();
 
@@ -57,13 +45,11 @@ class Twitter_Bootstrap_Form_Horizontal extends Twitter_Bootstrap_Form
 
                 $element->addDecorator($htmlTagDecorator);
                 $element->removeDecorator('Label');
-
             } elseif ($element instanceof Zend_Form_Element_File) {
                 $decorators = $element->getDecorators();
 
                 $element->setDecorators(array_merge([ 'File' ], $decorators));
                 $element->removeDecorator('ViewHelper');
-
             } elseif ($element instanceof Zend_Form_Element_Image) {
                 $decorators = $element->getDecorators();
 
