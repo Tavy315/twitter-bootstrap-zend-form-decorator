@@ -12,7 +12,7 @@ class Twitter_Bootstrap_View_Helper_ShowMessages extends Zend_View_Helper_Abstra
      *
      * @var array
      */
-    protected $types = [ 'info', 'success', 'error' ];
+    protected $types = [ 'info', 'success', 'danger', 'warning' ];
 
     /**
      *
@@ -26,23 +26,23 @@ class Twitter_Bootstrap_View_Helper_ShowMessages extends Zend_View_Helper_Abstra
         if (empty($messages)) {
             return '';
         }
+        
+        if (!is_array($messages)) {
+            $messages = [ $messages ];
+        }
 
         $type = strtolower($type);
         $type = in_array($type, $this->types) ? $type : 'info';
 
-        $content = '<div class="alert alert-' . $type . ' fade in">'
-            . '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+        $content = '<div class="alert alert-' . $type . ' fade in">';
+        $content .= '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
 
-        if ($messages instanceof Zend_Exception) {
-            $content .= '<p class="nomargin">' . $messages->getMessage() . '</p>';
-        } elseif (is_array($messages) && count($messages) > 0) {
-            foreach ($messages as $message) {
-                $content .= '<p class="nomargin">' . $message . '</p>';
-            }
-        } else {
-            $content .= '<p class="nomargin">' . $messages . '</p>';
+        foreach ($messages as $message) {
+            $content .= '<p class="nomargin">' . $message . '</p>';
         }
 
-        return $content . '</div>';
+        $content .= '</div>';
+
+        return $content;
     }
 }
