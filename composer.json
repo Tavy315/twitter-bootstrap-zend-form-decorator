@@ -11,7 +11,6 @@
   ],
   "type": "library",
   "homepage": "https://emagister.github.com/zend-form-decorators-bootstrap",
-  "version": "dev-master",
   "license": "MIT",
   "minimum-stability": "dev",
   "authors": [
