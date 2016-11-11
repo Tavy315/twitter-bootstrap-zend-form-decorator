@@ -2,40 +2,31 @@
   "name": "tavy315/twitter-bootstrap-zend-form-decorator",
   "description": "Zend_Form decorators for Twitter's Bootstrap UI",
   "keywords": [
-    "zend",
+    "zend framework",
     "zend form",
-    "zend form decorators",
-    "twitter",
-    "bootstrap",
+    "decorator",
     "twitter bootstrap"
   ],
   "type": "library",
-  "homepage": "https://emagister.github.com/zend-form-decorators-bootstrap",
-  "version": "dev-master",
   "license": "MIT",
   "minimum-stability": "dev",
   "authors": [
     {
-      "name": "EmagisterTech",
-      "email": "php@emagister.com",
-      "homepage": "http://engineering.emagister.com",
-      "role": "Developer"
-    },
-    {
       "name": "Octavian Matei",
       "homepage": "https://www.octav.name",
-      "role": "Contributor"
+      "role": "Developer"
     }
   ],
-  "require": {
-    "php": ">=5.4"
-  },
   "autoload": {
-    "psr-0": {
-      "Twitter_": ""
+    "psr-4": {
+      "Bootstrap\\": "src/Bootstrap/"
     }
   },
   "include-path": [
-    ""
-  ]
+    "src/"
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "tavy315/zendframework1": "1.*"
+  }
 }
