@@ -9,7 +9,7 @@ Here is an example form with some form fields
 
 ```php
 <?php
-class My_Bootstrap_Form extends Twitter_Bootstrap_Form_Inline
+class My_Bootstrap_Form extends \Bootstrap\InlineForm
 {
     public function init()
     {
@@ -47,7 +47,7 @@ class My_Bootstrap_Form extends Twitter_Bootstrap_Form_Inline
 
 ```php
 <?php
-class My_Vertical_Form extends Twitter_Bootstrap_Form_Vertical
+class My_Vertical_Form extends \Bootstrap\VerticalForm
 {
     public function init()
     {
@@ -60,7 +60,7 @@ class My_Vertical_Form extends Twitter_Bootstrap_Form_Vertical
 
 ```php
 <?php
-class My_Horizontal_Form extends Twitter_Bootstrap_Form_Horizontal
+class My_Horizontal_Form extends \Bootstrap\HorizontalForm
 {
     public function init()
     {
@@ -73,7 +73,7 @@ class My_Horizontal_Form extends Twitter_Bootstrap_Form_Horizontal
 
 ```php
 <?php
-class My_Inline_Form extends Twitter_Bootstrap_Form_Inline
+class My_Inline_Form extends \Bootstrap\InlineForm
 {
     public function init()
     {
@@ -105,7 +105,7 @@ the look and feel of the form.
 <?php
 
 // Normal search form
-$searchForm = new Twitter_Bootstrap_Form_Search(array(
+$searchForm = new \Bootstrap\SearchForm(array(
     'renderInNavBar' => false,
     'inputName'      => 'q',
     'submitLabel'    => 'Search!'
@@ -114,7 +114,7 @@ $searchForm = new Twitter_Bootstrap_Form_Search(array(
 echo $searchForm;
 
 // Navigation bar search form
-$mavbarSearchForm = new Twitter_Bootstrap_Form_Search(array(
+$mavbarSearchForm = new \Bootstrap\SearchForm(array(
     'renderInNavBar' => true,
     'pullItRight'    => true,
     'inputName'      => 'q',
@@ -126,12 +126,12 @@ echo $navbarSearchForm;
 
 ### DisplayGroups ###
 
-The base class ```Twitter_Bootstrap_Form``` (so inherently, all its subclasses) sets the custom class ```Twitter_Bootstrap_Form_DisplayGroup```
+The base class ```\Bootstrap\Form``` (so inherently, all its subclasses) sets the custom class ```\Bootstrap\Form\DisplayGroup```
 as a base class for handling virtual field groups. So there is no need for special coding here.
 
 ```php
 <?php
-class My_Bootstrap_Form extends Twitter_Bootstrap_Form_Horizontal
+class My_Bootstrap_Form extends \Bootstrap\HorizontalForm
 {
     public function init()
     {
@@ -178,14 +178,14 @@ To configure the look and feel of a submit button there are several options supp
 
 ```php
 <?php
-class My_Bootstrap_Form extends Twitter_Bootstrap_Form_Vertical
+class My_Bootstrap_Form extends \Bootstrap\VerticalForm
 {
     public function init()
     {
         // All the other form stuff
 
         $this->addElement('submit', 'submit', array(
-            'buttonType' => Twitter_Bootstrap_Form_Element_Submit::BUTTON_SUCCESS,
+            'buttonType' => \Bootstrap\Form\Element\Submit::BUTTON_SUCCESS,
             'disabled'   => true,
             'label'      => 'Send e-mail!'
         ));
@@ -207,7 +207,7 @@ as a button label. Let's see it.
 
 ```php
 <?php
-class My_Bootstrap_Form extends Twitter_Bootstrap_Form_Horizontal
+class My_Bootstrap_Form extends \Bootstrap\HorizontalForm
 {
     public function init()
     {
@@ -215,10 +215,10 @@ class My_Bootstrap_Form extends Twitter_Bootstrap_Form_Horizontal
 
         $this->addElement('button', 'submit', array(
             'label'      => 'Send e-mail!',
-            'buttonType' => Twitter_Bootstrap_Form_Element_Submit::BUTTON_SUCCESS,
+            'buttonType' => \Bootstrap\Form\Element\Submit::BUTTON_SUCCESS,
             'icon'       => 'ok',
             'whiteIcon'  => true,
-            'iconPosition' => Twitter_Bootstrap_Form_Element_Button::ICON_POSITION_RIGHT
+            'iconPosition' => \Bootstrap\Form\Element\Button::ICON_POSITION_RIGHT
         ));
     }
 }
@@ -232,7 +232,7 @@ The purpose of this decorator is to set the appropiate markup to render the form
 
 ```php
 <?php
-class My_Bootstrap_Form extends Twitter_Bootstrap_Form_Horizontal
+class My_Bootstrap_Form extends \Bootstrap\HorizontalForm
 {
     public function init()
     {
@@ -280,7 +280,7 @@ or a glyphicon. When
 
 ```php
 <?php
-class My_Bootstrap_Form extends Twitter_Bootstrap_Form_Horizontal
+class My_Bootstrap_Form extends \Bootstrap\HorizontalForm
 {
     public function init()
     {
@@ -325,7 +325,7 @@ appropiate class name. The size of an input can be set by the element's attribut
 
 ```php
 <?php
-class My_Bootstrap_Form extends Twitter_Bootstrap_Form_Horizontal
+class My_Bootstrap_Form extends \Bootstrap\HorizontalForm
 {
     public function init()
     {
