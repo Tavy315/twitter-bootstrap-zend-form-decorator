@@ -116,7 +116,7 @@ abstract class Form extends \Zend_Form
     /**
      * Adds a class name to a Zend_Form_Element if given or to the base form
      *
-     * @param string             $classNames
+     * @param array|string       $classNames
      * @param \Zend_Form_Element $element
      */
     protected function _addClassNames($classNames, \Zend_Form_Element $element = null)
@@ -128,7 +128,11 @@ abstract class Form extends \Zend_Form
             $classes = $this->_getClassNames();
         }
 
-        foreach ((array) $classNames as $className) {
+        if (!is_array($classNames)) {
+            $classNames = [ $classNames ];
+        }
+
+        foreach ($classNames as $className) {
             $classes[] = $className;
         }
 
@@ -140,11 +144,16 @@ abstract class Form extends \Zend_Form
     /**
      * Removes a class name
      *
-     * @param string $classNames
+     * @param array|string $classNames
      */
     protected function _removeClassNames($classNames)
     {
-        $classes = array_diff($this->_getClassNames(), (array) $classNames);
+        if (!is_array($classNames)) {
+            $classNames = [ $classNames ];
+        }
+
+        $classes = array_diff($this->_getClassNames(), $classNames);
+
         $this->setAttrib('class', trim(implode(' ', $classes)));
     }
 
