@@ -35,7 +35,7 @@ class FormRadio extends \Zend_View_Helper_FormElement
      *                              key is the radio value, and the array value is the radio text
      * @param array|string $attribs Attributes added to each radio
      *
-     * @return string The radio buttons XHTML.
+     * @return string The radio buttons XHTML
      */
     public function formRadio($name, $value = null, $attribs = null, $options = null, $listsep = '')
     {
