@@ -15,10 +15,10 @@ class FormFile extends \Zend_View_Helper_FormFile
      *
      * @param string|array $name    If a string, the element name.  If an
      *                              array, all other parameters are ignored, and the array elements
-     *                              are extracted in place of added parameters.
-     * @param array        $attribs Attributes for the element tag.
+     *                              are extracted in place of added parameters
+     * @param array        $attribs Attributes for the element tag
      *
-     * @return string The element XHTML.
+     * @return string The element XHTML
      */
     public function formFile($name, $attribs = null)
     {
