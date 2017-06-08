@@ -15,9 +15,9 @@ class FormText extends \Zend_View_Helper_FormText
      *
      * @param string|array $name    If a string, the element name.  If an
      *                              array, all other parameters are ignored, and the array elements
-     *                              are used in place of added parameters.
-     * @param mixed        $value   The element value.
-     * @param array        $attribs Attributes for the element tag.
+     *                              are used in place of added parameters
+     * @param mixed        $value   The element value
+     * @param array        $attribs Attributes for the element tag
      *
      * @return string The element XHTML.
      */
@@ -32,9 +32,9 @@ class FormText extends \Zend_View_Helper_FormText
      * @param string       $type    The element type
      * @param string|array $name    If a string, the element name.  If an
      *                              array, all other parameters are ignored, and the array elements
-     *                              are used in place of added parameters.
-     * @param mixed        $value   The element value.
-     * @param array        $attribs Attributes for the element tag.
+     *                              are used in place of added parameters
+     * @param mixed        $value   The element value
+     * @param array        $attribs Attributes for the element tag
      *
      * @return string The element XHTML.
      */
