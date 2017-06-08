@@ -17,10 +17,10 @@ class FormNote extends \Zend_View_Helper_FormNote
      *                              array, all other parameters are ignored, and the array elements
      *                              are extracted in place of added parameters.
      * @param array        $value   The note to display.  HTML is *not* escaped; the
-     *                              note is displayed as-is.
-     * @param array        $attribs Attributes for the element tag.
+     *                              note is displayed as-is
+     * @param array        $attribs Attributes for the element tag
      *
-     * @return string The element XHTML.
+     * @return string The element XHTML
      */
     public function formNote($name, $value = null, $attribs = null)
     {
