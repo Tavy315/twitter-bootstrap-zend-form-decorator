@@ -29,11 +29,11 @@ class FormRadio extends \Zend_View_Helper_FormElement
      *
      * @param string|array $name    If a string, the element name.  If an
      *                              array, all other parameters are ignored, and the array elements
-     *                              are extracted in place of added parameters.
-     * @param mixed        $value   The radio value to mark as 'checked'.
+     *                              are extracted in place of added parameters
+     * @param mixed        $value   The radio value to mark as 'checked'
      * @param array        $options An array of key-value pairs where the array
-     *                              key is the radio value, and the array value is the radio text.
-     * @param array|string $attribs Attributes added to each radio.
+     *                              key is the radio value, and the array value is the radio text
+     * @param array|string $attribs Attributes added to each radio
      *
      * @return string The radio buttons XHTML.
      */
