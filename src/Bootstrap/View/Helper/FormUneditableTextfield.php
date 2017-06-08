@@ -19,7 +19,7 @@ class FormUneditableTextfield extends \Zend_View_Helper_FormElement
      * @param mixed        $value   The element value
      * @param array        $attribs Attributes for the element tag
      *
-     * @return string The element XHTML.
+     * @return string The element XHTML
      */
     public function formUneditableTextfield($name, $value = null, $attribs = null)
     {
