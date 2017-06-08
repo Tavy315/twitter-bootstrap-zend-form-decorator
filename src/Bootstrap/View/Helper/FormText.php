@@ -19,7 +19,7 @@ class FormText extends \Zend_View_Helper_FormText
      * @param mixed        $value   The element value
      * @param array        $attribs Attributes for the element tag
      *
-     * @return string The element XHTML.
+     * @return string The element XHTML
      */
     public function formText($name, $value = null, $attribs = null)
     {
@@ -36,7 +36,7 @@ class FormText extends \Zend_View_Helper_FormText
      * @param mixed        $value   The element value
      * @param array        $attribs Attributes for the element tag
      *
-     * @return string The element XHTML.
+     * @return string The element XHTML
      */
     protected function _formText($type, $name, $value = null, $attribs = null)
     {
