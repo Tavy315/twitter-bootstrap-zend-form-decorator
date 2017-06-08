@@ -19,7 +19,7 @@ class FormEmail extends FormText
      * @param mixed        $value   The element value
      * @param array        $attribs Attributes for the element tag
      *
-     * @return string The element XHTML.
+     * @return string The element XHTML
      */
     public function formEmail($name, $value = null, $attribs = null)
     {
