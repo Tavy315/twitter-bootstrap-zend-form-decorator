@@ -24,7 +24,7 @@ class ViewHelper extends \Zend_Form_Decorator_ViewHelper
     public function getValue($element)
     {
         if (!$element instanceof \Zend_Form_Element) {
-            return null;
+            return;
         }
 
         foreach ($this->_buttonTypes as $type) {
